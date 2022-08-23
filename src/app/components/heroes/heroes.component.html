@@ -1,0 +1,41 @@
+<h2> My Heros</h2>
+<ul class="heroes">
+    <!-- The *ngFor is Angular's repeater directive. It repeats the host element for each element in a list.-->
+    <li *ngFor="let hero of heroes"> <!-- host element-->
+        <!-- heroes holds the mick heroes list from class file, hero holds current object
+        for each each iteration through the list-->
+        <button (click)="onSelectHero(hero)" type="button" [class.selected]="hero === selectedHero">
+            <span class="badge">{{ hero.id }}</span>
+            <span class="name"> {{ hero.name }}</span>
+        </button>
+    </li>
+</ul>
+<!--Bind the HeroesComponent.selectedHero to the element's hero property like this.
+
+one-way data binding from the selectedHero property of the HeroesComponent to the hero property of the target element,
+which maps to the hero property of the HeroDetailComponent. -->
+
+<app-herodetail [hero]="selectedHero"></app-herodetail> 
+ 
+
+
+
+
+
+
+
+
+<!-- <div *ngIf="selectedHero">
+    <h2> {{ selectedHero.name | uppercase }} Details</h2>
+    <div> id: {{ selectedHero.id }}</div> -->
+    <!--Users should be able to edit the hero's name in an <input> text box. -->
+   <!-- <div> -->
+        <!--The text box should both display the hero's name property and update that property as the user types. 
+        That means data flows from the component class out to the screen and from the screen back to the class.-->
+     <!--    <label for="hero-name">Hero name :</label> -->
+        <!--To automate that data flow, setup a two-way data binding between the 
+        <input> form element and the hero.name property.-->
+    <!--     <input type="hero-name" [(ngModel)]="selectedHero.name">
+    </div>
+</div> -->
+
